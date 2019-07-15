@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
 #login: Artur
-#haslo: Konewka21
+#haslo: Konewk
+#alt+1-hide/active left bar
 
 app = Flask(__name__)
 
