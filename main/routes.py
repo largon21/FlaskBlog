@@ -14,7 +14,9 @@ from flask_login import login_user, current_user, logout_user, login_required
 @app.route("/")
 @app.route("/home")
 def home():
-    posts = Post.query.all()
+    page = request.args.get('page',1, type=int)
+    posts = Post.query.order_by(Post.date_posted.desc()) #sorted according to the newest one
+    posts = posts.paginate(page=page, per_page=5) #number of pages on the side
     return render_template('home.html', posts=posts)
 
 @app.route("/about")
